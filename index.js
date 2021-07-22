@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const strl= [];
 app.use(express.json());
 
@@ -84,4 +84,8 @@ app.get('/roman/:id',(req,res)=>{
     });
 })
 
-app.listen(port, () => console.log(`Correndo o projeto`))
+app.get('/',(req,res)=>{
+    res.send("Hello world");
+})
+
+app.listen(port, () => console.log(`Correndo o projeto no `+port))
