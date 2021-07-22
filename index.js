@@ -83,7 +83,7 @@ app.get('/roman/:id',(req,res)=>{
     valores= [];
     total = pegar(id);
     res.send({
-        strl: valores, total
+        digitos: valores, total
     });
 })
 
