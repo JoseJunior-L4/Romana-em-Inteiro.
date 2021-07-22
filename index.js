@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
-const strl= [];
+var strl= [];
 app.use(express.json());
 
 /*
@@ -55,18 +55,25 @@ function pegar(str) {
       }
 
     for (let index = 0; index < strl.length; index++) {
-        
-        if(i+1>strl.length){
+        console.log("ind"+index+" st"+strl.length);
+        if(index+1<strl.length){
+            
             if(strl[index]>=strl[index+1]){
+                console.log("1st: "+strl[index])
+                console.log("2st: "+strl[index+1])
                 total+=strl[index]
             }else{
                 total+=(strl[index+1]-strl[index]);
+                console.log("1st: "+strl[index])
+                console.log("2st: "+strl[index+1])
                 index++;
             }
         }else{
+            
             total+=strl[index]
         }
         
+        console.log("e: "+total)
         
     }
     
@@ -78,6 +85,7 @@ function pegar(str) {
 app.get('/roman/:id',(req,res)=>{
     var {id} = req.params;
     var total = 0;
+    strl= [];
     total = pegar(id);
     res.send({
         strl, total
