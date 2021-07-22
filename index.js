@@ -75,7 +75,7 @@ function pegar(str) {
 }
 
 
-app.post('/roman/:id',(req,res)=>{
+app.get('/roman/:id',(req,res)=>{
     var {id} = req.params;
     var total = 0;
     total = pegar(id);
